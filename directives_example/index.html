@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+	<head>
+		<link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
+		<link href="../bower_components/bootstrap/dist/js/bootstrap.min.js" rel="stylesheet" media="screen">
+		<link href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+		<script src="../bower_components/angular/angular.min.js"></script>
+	</head>
+	<body ng-app="AppMarketApp">
+		<div class="header">
+			<div class="container">
+				<h1>App Market</h1>
+			</div>
+		</div>
+
+		<div class="main" ng-controller="MainController">
+			<div class="container">
+				<div class="card"> 
+					<app-info info="move"></app-info> 
+				</div>
+				<div class="card">
+					<app-info info="shutterbugg"></app-info> 
+				</div>
+				<div class="card">
+					<app-info info="gameboard"></app-info> 
+				</div>
+				<div class="card">
+					<app-info info="forecast"></app-info> 
+				</div>
+				<div class="card" ng-repeat="app in apps">
+					<app-info info="app"></app-info> 
+				</div>
+			</div>
+		</div>
+
+		<!-- Modules -->
+		<script src="js/models/app.js"></script>
+
+		<!-- Controllers -->
+		<script src="js/controllers/MainController.js"></script>
+
+		<!-- Directives -->
+		<script src="js/directives/appInfo.js"></script>
+		<script src="js/directives/installApp.js"></script>
+
+	</body>
+</html>

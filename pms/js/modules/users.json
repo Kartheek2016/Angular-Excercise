@@ -1,0 +1,34 @@
+{
+	"users": [
+		{
+			"user_id": 1,
+			"user_name": "Chaitanya",
+			"user_email": "chaitanyaeluri@gmail.com"
+		},
+		{
+			"user_id": 2,
+			"user_name": "Surya",
+			"user_email": "thotasuryaprakash246@gmail.com"
+		},
+		{
+			"user_id": 3,
+			"user_name": "Priyanka",
+			"user_email": "priyankasiddana@gmail.com"
+		},
+		{
+			"user_id": 4,
+			"user_name": "Anjali",
+			"user_email": "geet2anju@gmail.com"
+		},
+		{
+			"user_id": 5,
+			"user_name": "Kartheek",
+			"user_email": "kartheekchilvery@gmail.com"
+		},
+		{
+			"user_id": 6,
+			"user_name": "Pradeep",
+			"user_email": "pradeeepkmalve@gmail.com"
+		}
+	]
+}

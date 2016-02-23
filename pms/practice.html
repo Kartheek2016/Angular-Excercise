@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Angular js</title>
+		<link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
+		<link href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+		<script src="/bower_components/angular/angular.min.js"></script>
+		<script>
+			var app = angular.module('app', []);
+			app.controller('myCtrl', function($scope) {
+				$scope.firstName= "John";
+				$scope.lastName= "Doe";
+			});
+
+			app.controller('MyController', ['$scope', function($scope) {
+				$scope.username = 'World';
+				$scope.sayHello = function() {
+					$scope.greeting = 'Hello ' + $scope.username + '!';
+				};
+			}]);
+
+			app.controller('EventController', ['$scope', function($scope) {
+				$scope.count = 0;
+				$scope.$on('MyEvent', function() {
+					$scope.count++;
+				});
+			}]);
+                        
+                        app.controller('ProductController', ['$scope', function($scope) {
+				$scope.products = [{name: "product 1", price: 100}, {name: "product 2", price: 100}, {name: "product 3", price: 100}];
+			}]);
+		</script>
+	</head>
+	<body>
+
+		<div ng-app="app">
+ 
+			<br><p>Name : <input type="text" ng-model="name" placeholder="Enter your name here"></p>
+			<h4>Hello {{name}}</h4>
+			<p ng-bind="name"></p>
+			<hr>
+
+			<div ng-init="myCol='yellow'">
+				<input style="background-color:{{myCol}}" ng-model="myCol" value="{{myCol}}">
+			</div>
+			<hr>
+
+			<div ng-controller="myCtrl" ng-init="person={firstName:'John',lastName:'Doe'}">
+				First Name: <input type="text" ng-model="firstName"><br><br>
+				Last Name: <input type="text" ng-model="lastName"><br>
+				<br>
+				Full Name: {{ person.firstName + " " + person.lastName }}
+			</div>
+			<hr>
+
+			<div ng-controller="MyController">
+				Your name:<input type="text" ng-model="username">
+				<button ng-click='sayHello()'>greet</button>
+				{{greeting}}
+			</div>
+			<hr>
+
+			<div ng-controller="EventController">
+				Root scope <tt>MyEvent</tt> count: {{count}}
+				<ul>
+					<li ng-repeat="i in [1]" ng-controller="EventController">
+					<button ng-click="$emit('MyEvent')">$emit('MyEvent')</button>
+					<button ng-click="$broadcast('MyEvent')">$broadcast('MyEvent')</button>
+					<br>
+					emit MyEvent count: {{count}}
+					<ol>
+						<li ng-repeat="item in [1, 2]" ng-controller="EventController">broadcast scope MyEvent count: {{count}}</li>
+					</ol>
+					</li>
+				</ul>
+			</div>
+			<hr>
+
+			<table ng-controller="ProductController" border='1'>
+				<tr ng-repeat="product in products">
+					<td> {{product.name}}</td>
+					<td> {{product.price}}</td>
+				</tr>
+			</table>
+			<hr>
+
+			<form name="myForm">
+				Email:<input type="email" name="myAddress" ng-model="text"><span ng-show="myForm.myAddress.$error.email">Not a valid email</span>
+			</form>
+			<hr>
+		</div>
+
+	</body>
+</html>

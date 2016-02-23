@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<title>Simple app</title>
+		<link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
+		<link href="../bower_components/bootstrap/dist/js/bootstrap.min.js" rel="stylesheet" media="screen">
+		<link href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+		<script src="/bower_components/jquery/dist/jquery.js"></script>
+		<script>
+			$(document).ready(function() {
+				var userName="";
+			  	var Password="";
+				$("#userId").on("keyup", function(){
+			  		userName = $("#userId").val();
+			  	});	
+		  
+			 	$("#password").on("keyup", function(){
+			       		 Password=$("#password").val();
+			   	});
+
+				$("#signIn").click(function(e) {
+					alert();
+					$.ajax({
+						url: "http://localhost:8080/SignIn", 
+						data: {
+							userId: userName,
+							Password: Password        
+						},
+						method: "post",
+						success: function(curUser) {
+							if(curUser === 0){
+								alert("Invalid User ID or Password!!");
+							}
+							else{
+								window.location.href = "home.html";
+							}
+						}, error:function() {
+						alert("Error!!!")
+						}
+					});
+				});
+			});	
+		</script>
+	</head>
+	<body>
+		<h1>Hello! welcome.</h1>
+		<form role="form" action="SignIn" method="post" class="col-sm-2 registration-form" id="signInForm">
+			<div class="form-group">
+				<input type="text" name="email" placeholder="User Id" class="userName form-control" id="userId">
+			</div>
+			<div class="form-group">
+				<input type="password" name="password" placeholder="Password" class="password form-control" id="password">
+			</div>
+			<button type="button" value ="submit" class="btn btn-info" id="signIn">Sign In!</button>
+	</body>
+</html>

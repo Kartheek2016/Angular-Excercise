@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="projectApp">
+	<head>
+		<title>Project Management</title>
+		<link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
+		<link href="../bower_components/bootstrap/dist/js/bootstrap.min.js" rel="stylesheet" media="screen">
+		<link href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+		<script src="../bower_components/angular/angular.min.js"></script>
+		<script src="../bower_components/angular-route/angular-route.min.js"></script>
+		<script src = "js/modules/app.js"></script>
+		<script src = "js/controllers/ProController.js"></script>
+		<script src = "js/models/ProService.js"></script>
+	</head>
+	<body>
+		<div>
+			<span class="btn btn-default"><a href="#/fetchAll">Fetch All</a></span>
+			<span class="btn btn-default"><a href="#/users">Users</a></span>
+			<span class="btn btn-default"><a href="#/projects">Projects</a></span>
+			<span class="btn btn-default"><a href="#/tasks">Tasks</a></span>
+			<>
+			<ng-view></ng-view>
+		</div>
+	</body>
+</html>

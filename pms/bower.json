@@ -1,0 +1,24 @@
+{
+  "name": "pms",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Kartheek2016 <chilvery.kartheek@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Kartheek2016/gs-rest-service",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap": "^3.3.6",
+    "angular": "^1.5.0",
+    "jquery": "^2.2.1",
+    "angular-route": "^1.5.0"
+  }
+}
