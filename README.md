@@ -29,7 +29,7 @@ Install bower_components:
 Run grunt:
  - grunt http-server
 
-Afterclone:
+After clone:
  - cd folder
  - npm install
  - bower install
