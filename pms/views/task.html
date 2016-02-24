@@ -1,1 +1,14 @@
-<br><br><div>{{ taskData }}</div>
+<br><br><table class="table-bordered">
+	<thead>
+		<tr ng-repeat="task in taskData.tasks | limitTo:1">
+			<th class="text-center" ng-repeat="(key, value) in task">{{ key | uppercase }}</th>
+		<tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="task in taskData.tasks">
+			<td>{{ task.user_id }}</td>
+			<td>{{ task.task_id }}</td>
+			<td>{{ task.description }}</td>
+		</tr>
+	</tbody>
+</table>

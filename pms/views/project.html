@@ -1,1 +1,18 @@
-<br><br><div>{{ projectData }}</div>
+<br><br><table class="table-bordered">
+	<thead>
+		<tr ng-repeat="project in projectData.projects | limitTo:1">
+			<th class="text-center" ng-repeat="(key, value) in project">{{ key | uppercase }}</th>
+		<tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="project in projectData.projects">
+			<td>{{ project.project_id }}</td>
+			<td>{{ project.project_name }}</td>
+			<td>
+				<div ng-repeat="user in project.project_members.user_id">
+					<span>{{ user }}</span>
+				</div>
+			</td>
+		</tr>
+	</tbody>
+</table>

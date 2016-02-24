@@ -1,23 +1,23 @@
 {
 	"projects": [
 		{
-			"id": 1,
-			"name": "Project1",
-			"proejct_members": {
+			"project_id": 1,
+			"project_name": "Project1",
+			"project_members": {
 				"user_id": [1, 2, 3]
 			}
 		},
 		{
-			"id": 2,
-			"name": "Project2",
-			"proejct_members": {
+			"project_id": 2,
+			"project_name": "Project2",
+			"project_members": {
 				"user_id": [4, 5, 6]
 			}
 		},
 		{
-			"id": 3,
-			"name": "Project3",
-			"proejct_members": {
+			"project_id": 3,
+			"project_name": "Project3",
+			"project_members": {
 				"user_id": [2, 3, 4]
 			}
 		}

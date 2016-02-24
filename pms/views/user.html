@@ -1,1 +1,14 @@
-<br><br><div>{{ userData }}</div>
+<br><br><table class="table-bordered">
+	<thead>
+		<tr ng-repeat="user in userData.users | limitTo:1">
+			<th class="text-center" ng-repeat="(key, value) in user">{{ key | uppercase }}</th>
+		<tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="user in userData.users">
+			<td>{{ user.user_id }}</td>
+			<td>{{ user.user_name | uppercase}}</td>
+			<td>{{ user.user_email }}</td>
+		</tr>
+	</tbody>
+</table>
