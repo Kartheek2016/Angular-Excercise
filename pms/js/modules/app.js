@@ -13,5 +13,8 @@ app.config(function($routeProvider) {
 	}).when('/tasks', {
 		controller: 'TaskController',
 		templateUrl: '../views/task.html'
+	}).when('/user/:id/projects', {
+		controller: 'UserProjectsController',
+		templateUrl: '../views/project.html'
 	});
 });

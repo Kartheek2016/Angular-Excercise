@@ -27,3 +27,10 @@ app.controller('TaskController', function ($scope, TaskService) {
 		$scope.taskData = res.data;
 	});
 });
+
+app.controller('UserProjectsController', function ($scope, $routeParams, UserProjectsService) {
+	$scope.user_id = $routeParams.id;
+	UserProjectsService.getProject($scope.user_id).then(function (res) {
+		$scope.resp = res;
+	});
+});

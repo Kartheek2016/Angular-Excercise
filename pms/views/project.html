@@ -11,9 +11,27 @@
 			<td>{{ project.project_name }}</td>
 			<td>
 				<div ng-repeat="user in project.project_members.user_id">
-					<span>{{ user }}</span>
+					<span><a ng-href="#/user/{{user}}/projects">{{ user }}</a></span>
 				</div>
 			</td>
 		</tr>
 	</tbody>
+</table>
+<table class="table-bordered">
+	<tr>
+		<th colspan="3" ng-repeat="user in resp | limitTo:1">
+			<div ng-repeat="(key, value) in user.project_members | limitTo:1">
+				<span>{{ key }}:{{ user_id }}</a></span>
+			</div>
+		</th>
+	</tr>
+	<tr ng-repeat="particular in resp">
+		<td>{{ particular.project_id }}</td>
+		<td>{{ particular.project_name }}</td>
+		<td>
+			<div ng-repeat="userId in particular.project_members.user_id">
+				<span>{{ userId }}</a></span>
+			</div>
+		</td>
+	</tr>
 </table>
