@@ -1,5 +1,5 @@
 # Angular-Excercise
-Using Angularjs, Bootstrap &amp; jquery.
+Using Angularjs, Angular-route, Bootstrap &amp; jquery.
 
 Move to the project folder: 
  - cd folder
@@ -24,7 +24,7 @@ Initialize bower:
  - bower init(creates bower.json)
 
 Install bower_components:
- - bower install angular/bootstrap/jquery/bootswatch --save-dev
+ - bower install angular/angular-route/bootstrap/bootswatch/jquery/ng-lodash --save-dev
 
 Run grunt:
  - grunt http-server
