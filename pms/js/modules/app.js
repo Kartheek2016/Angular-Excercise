@@ -2,7 +2,7 @@ var app = angular.module('projectApp', ['ngRoute']);
 
 app.config(function($routeProvider) {
 	$routeProvider.when('/fetchAll', {
-		controller: 'MainController',
+		controller: 'ProController',
 		templateUrl: '../views/fetchAll.html'
 	}).when('/users', {
 		controller: 'UserController',
@@ -14,6 +14,9 @@ app.config(function($routeProvider) {
 		controller: 'TaskController',
 		templateUrl: '../views/task.html'
 	}).when('/user/:id/projects', {
+		controller: 'UserProjectsController',
+		templateUrl: '../views/project.html'
+	}).when('/:id', {
 		controller: 'UserProjectsController',
 		templateUrl: '../views/project.html'
 	});

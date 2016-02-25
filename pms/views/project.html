@@ -24,6 +24,7 @@
 				<span>{{ key | uppercase }}:{{ user_id }}</a></span>
 			</div>
 		</th>
+	</tr>
 	<tr ng-repeat="user in resp | limitTo:1">
 		<th class="text-center" ng-repeat="(key, value) in user">{{ key | uppercase }}</th>
 	</tr>

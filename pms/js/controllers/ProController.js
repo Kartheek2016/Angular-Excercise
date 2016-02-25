@@ -1,19 +1,28 @@
-app.controller('MainController', function ($scope, MainService) {
-	MainService.getUsers().then(function (res) {
-		$scope.userObj = res.data;
+app.controller('ProController', function ($scope, $rootScope, ProService) {
+	ProService.getUsers().then(function (res) {
+		$rootScope.userObj = res.data;
 	});
-	MainService.getProjects().then(function (res) {
+	ProService.getProjects().then(function (res) {
 		$scope.projectObj = res.data;
 	});
-	MainService.getTasks().then(function (res) {
+	ProService.getTasks().then(function (res) {
 		$scope.taskObj = res.data;
 	});
 });
 
-app.controller('UserController', function ($scope, UserService) {
+app.controller('UserController', function ($scope, $rootScope, UserService, UserProjectsService) {
+	$rootScope.defaultUser = 1;
 	UserService.get().then(function (res) {
 		$scope.userData = res.data;
 	});
+
+	$scope.changeUser = function(id){
+		console.log(id);
+		UserProjectsService.getProject(id).then(function (res) {
+			console.log(res)
+			$scope.resp = res;
+		});
+	}
 });
 
 app.controller('ProjectController', function ($scope, ProjectService) {
