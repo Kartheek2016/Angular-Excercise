@@ -42,7 +42,6 @@ app.factory('UserProjectsService', function ($http, $q, MainService) {
 			var defered = $q.defer();
 			var particularProject = [];
 			MainService.getProjects().success(function(data) {
-				console.log(data);
 				for(var i = 0; i < data.projects.length; i++) {
 					for(var j = 0; j < data.projects[i].project_members.user_id.length; j++) {
 						if(user_id == data.projects[i].project_members.user_id[j]){
@@ -50,7 +49,6 @@ app.factory('UserProjectsService', function ($http, $q, MainService) {
 						}
 					}
 				}
-				console.log(particularProject);
 				defered.resolve(particularProject);
 			});
 			return defered.promise;
