@@ -1,5 +1,5 @@
 <br><br>
-<table class="table-bordered">
+<table class="table-bordered" width="500px">
 	<thead>
 		<tr ng-repeat="user in userObj.users | limitTo:1">
 			<th class="text-center" ng-repeat="(key, value) in user">{{ key | uppercase }}</th>
@@ -14,7 +14,7 @@
 	</tbody>
 </table>
 <hr>
-<table class="table-bordered">
+<table class="table-bordered" width="500px">
 	<thead>
 		<tr ng-repeat="project in projectObj.projects | limitTo:1">
 			<th class="text-center" ng-repeat="(key, value) in project">{{ key | uppercase }}</th>
@@ -33,7 +33,7 @@
 	</tbody>
 </table>
 <hr>
-<table class="table-bordered">
+<table class="table-bordered" width="500px">
 	<thead>
 		<tr ng-repeat="task in taskObj.tasks | limitTo:1">
 			<th class="text-center" ng-repeat="(key, value) in task">{{ key | uppercase }}</th>

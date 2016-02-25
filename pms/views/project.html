@@ -1,5 +1,5 @@
 <br><br>
-<table class="table-bordered">
+<table class="table-bordered"  width="500px">
 	<thead>
 		<tr ng-repeat="project in projectData.projects | limitTo:1">
 			<th class="text-center" ng-repeat="(key, value) in project">{{ key | uppercase }}</th>
@@ -17,7 +17,7 @@
 		</tr>
 	</tbody>
 </table>
-<table class="table-bordered">
+<table class="table-bordered" width="500px">
 	<tr>
 		<th colspan="3" ng-repeat="user in resp | limitTo:1">
 			<div ng-repeat="(key, value) in user.project_members | limitTo:1">
