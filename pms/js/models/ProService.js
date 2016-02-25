@@ -1,13 +1,13 @@
 app.factory('MainService', function ($http) {
 	return {
 		getUsers: function () {
-			return $http.get('../js/modules/users.json');
+			return $http.get('../js/models/users.json');
 		},
 		getProjects: function () {
-			return $http.get('../js/modules/projects.json');
+			return $http.get('../js/models/projects.json');
 		},
 		getTasks: function () {
-			return $http.get('../js/modules/tasks.json');
+			return $http.get('../js/models/tasks.json');
 		}
 	};
 });
