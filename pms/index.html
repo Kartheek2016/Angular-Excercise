@@ -9,38 +9,33 @@
 		<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 		<script src="../bower_components/angular/angular.min.js"></script>
 		<script src="../bower_components/angular-route/angular-route.min.js"></script>
+		<script src="../bower_components/ng-lodash/build/ng-lodash.min.js"></script>
 		<script src = "../js/modules/app.js"></script>
 		<script src = "../js/controllers/ProController.js"></script>
 		<script src = "../js/models/ProService.js"></script>
+		<script src = "../js/directives/dash_board.js"></script>
 	</head>
-	<body>
-		<!--<div class = "page-header">
-			<div ng-controller = "UserController">
-				<select class = "btn btn-info">
-					<option ng-options="user.user_id as user.user_name for user in userData.users" ng-repeat="user in userData.users">{{ user.user_name }}</option>
-				</select>
-			</div>
-		</div> -->
-		<div class="page-header" ng-controller="UserController">
-			<div class="col-sm-2 col-sm-offset-10">
-				<select class="btn btn-info" ng-model="defaultUser" ng-change="changeUser(defaultUser)" ng-options="user.user_id as user.user_name for user in userData.users"></select>
-			</div>
-			<table class="table-bordered" width="500px">
-				<tr ng-repeat="user in resp | limitTo:1">
-					<th class="text-center" ng-repeat="(key, value) in user">{{ key | uppercase }}</th>
-				</tr>
-				<tr ng-repeat="particular in resp">
-					<td>{{ particular.project_id }}</td>
-					<td>{{ particular.project_name }}</td>
-					<td>
-						<div ng-repeat="userId in particular.project_members.user_id">
-							<span>{{ userId }}</a></span>
-						</div>
-					</td>
-				</tr>
-			</table>
-		</div>
+	<body ng-controller="DashboardController">
+		<div class="container">
+			<divclass="row">
+		
+				<div class="page-header">
+					<div class="col-sm-offset-10">
+						<!--<select class="btn btn-success" ng-model="defaultUser" ng-change="changeUser(defaultUser)" selected="defaultUser">
+							<option ng-repeat="user in userData.users"  ng-value="{{user.user_id}}">{{ user.user_name }}</option>
+						</select>-->
+					
+						<select class="btn btn-info" ng-model="defaultUser" ng-change="changeUser(defaultUser)" ng-options="user.user_id as user.user_name for user in userData.users"></select>
+					</div>
+				</div>
+			</divclass="row">
 
-		<ng-view></ng-view>
+			<user-dash-board></user-dash-board>
+
+			<project-dash-board></project-dash-board>
+
+			<ng-view></ng-view>
+
+		</div>	
 	</body>
 </html>

@@ -1,0 +1,22 @@
+<div class="col-sm-5">
+<div class="panel panel-default">
+	<table class="table table-bordered" width="500px">
+		<thead>
+			<tr ng-repeat="user in resp | limitTo:1">
+				<th class="text-center" ng-repeat="(key, value) in user">{{ key | uppercase }}</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="info" ng-repeat="particular in resp">
+				<td>{{ particular.project_id }}</td>
+				<td>{{ particular.project_name }}</td>
+				<td>
+					<div ng-repeat="userId in particular.project_members.user_id">
+						<span>{{ userId }}</a></span>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</div>

@@ -1,0 +1,16 @@
+<div class="col-sm-5 col-sm-offset-1">
+<div class="panel panel-default">
+	<table class ="table table-bordered">
+		<thead>
+			<tr ng-repeat= "user in curUser">
+				<th ng-repeat= "(key, value) in user">{{ key | uppercase }}</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="info" ng-repeat= "user in curUser">
+				<td ng-repeat= "(key, value) in user">{{ value }}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</div>

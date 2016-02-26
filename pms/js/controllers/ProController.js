@@ -11,18 +11,9 @@ app.controller('ProController', function ($scope, $rootScope, ProService) {
 });
 
 app.controller('UserController', function ($scope, $rootScope, UserService, UserProjectsService) {
-	$rootScope.defaultUser = 1;
 	UserService.get().then(function (res) {
 		$scope.userData = res.data;
 	});
-
-	$scope.changeUser = function(id){
-		console.log(id);
-		UserProjectsService.getProject(id).then(function (res) {
-			console.log(res)
-			$scope.resp = res;
-		});
-	}
 });
 
 app.controller('ProjectController', function ($scope, ProjectService) {
@@ -42,4 +33,21 @@ app.controller('UserProjectsController', function ($scope, $routeParams, UserPro
 	UserProjectsService.getProject($scope.user_id).then(function (res) {
 		$scope.resp = res;
 	});
+});
+
+app.controller('DashboardController', function ($scope, $rootScope, UserService, UserProjectsService) {
+	
+	$rootScope.defaultUser = 1;
+	
+	UserService.get().then(function (res) {
+		$scope.userData = res.data;
+	});
+
+	$scope.changeUser = function(id){
+		$scope.curUser = _.filter($scope.userData.users, { 'user_id': id });
+		
+		UserProjectsService.getProject(id).then(function (res) {
+			$scope.resp = res;
+		});
+	};
 });
