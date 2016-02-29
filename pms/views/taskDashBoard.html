@@ -1,0 +1,19 @@
+<div class="col-sm-6">
+	<div class="panel panel-default">
+		<table class="table table-bordered">
+			<tr ng-repeat="task in resp | limitTo:1">
+				<th class="text-center" ng-repeat="(key, value) in task">{{ key | uppercase }}</th>
+			</tr>
+			<tr ng-repeat="task in resp">
+				<td>{{ task.user_id }}</td> 
+				<td>{{ task.task_id }}</td>
+				<td>
+					<div ng-repeat="projectId in task.project_id">
+						<span>{{ projectId }}</a></span>
+					</div>
+				</td>
+				<td>{{ task.description }}
+			</tr>
+		</table>
+	</div>
+</div>

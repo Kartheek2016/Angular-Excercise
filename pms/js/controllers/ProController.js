@@ -35,7 +35,7 @@ app.controller('UserProjectsController', function ($scope, $routeParams, UserPro
 	});
 });
 
-app.controller('DashboardController', function ($scope, $rootScope, UserService, UserProjectsService) {
+app.controller('DashboardController', function ($scope, $rootScope, $location, UserService, UserProjectsService) {
 	
 	$rootScope.defaultUser = 1;
 	
@@ -44,10 +44,32 @@ app.controller('DashboardController', function ($scope, $rootScope, UserService,
 	});
 
 	$scope.changeUser = function(id){
-		$scope.curUser = _.filter($scope.userData.users, { 'user_id': id });
-		
-		UserProjectsService.getProject(id).then(function (res) {
-			$scope.resp = res;
-		});
+		$location.path("/projects/" + id);
 	};
+
+});
+
+app.controller('userProjectsController', function ($scope, $routeParams, UserService, UserProjectsService) {
+	$scope.userId = $routeParams.currentUser;
+
+	UserService.get().then(function (res) {
+		$scope.userData = res.data;
+	});
+	
+	$scope.curUser = _.filter($scope.userData.users, function(r){
+		return r.user_id == $scope.userId;
+	});
+	
+	UserProjectsService.getProject($scope.userId).then(function (res) {
+		$scope.resp = res;
+	});
+
+});
+
+app.controller('ProjectTasksController', function ($scope, $routeParams, ProjectTasksService) {
+	$scope.project_id = $routeParams.projectId;
+	ProjectTasksService.getTasks($scope.project_id).then(function (res) {
+		$scope.resp = res;
+	});
+
 });

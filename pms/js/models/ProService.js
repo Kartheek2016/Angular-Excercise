@@ -55,3 +55,24 @@ app.factory('UserProjectsService', function ($http, $q, ProService) {
 		}
 	};
 });
+
+app.factory('ProjectTasksService', function ($http, $q, ProService) {
+	return {
+		getTasks: function (project_id) {
+			var defered = $q.defer();
+			var particularTask = [];
+			ProService.getTasks().success(function(data) {
+				for(var i = 0; i < data.tasks.length; i++) {
+					for(var j = 0; j < data.tasks[i].project_id.length; j++) {
+						if(project_id == data.tasks[i].project_id[j]){
+							particularTask.push(data.tasks[i]);
+						}
+					}
+				}
+				defered.resolve(particularTask);
+				console.log(particularTask);
+			});
+			return defered.promise;
+		}
+	};
+});

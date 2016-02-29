@@ -1,22 +1,29 @@
 <div class="col-sm-5">
-<div class="panel panel-default">
-	<table class="table table-bordered" width="500px">
-		<thead>
-			<tr ng-repeat="user in resp | limitTo:1">
-				<th class="text-center" ng-repeat="(key, value) in user">{{ key | uppercase }}</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr class="info" ng-repeat="particular in resp">
-				<td>{{ particular.project_id }}</td>
-				<td>{{ particular.project_name }}</td>
-				<td>
-					<div ng-repeat="userId in particular.project_members.user_id">
-						<span>{{ userId }}</a></span>
-					</div>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-</div>
+	<div class="panel panel-default">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th  class="text-center" colspan="3" ng-repeat="task in resp | limitTo:3:3">
+						<div ng-repeat="(key, value) in task">
+							<span>{{ key | uppercase }}:{{ project_id }}</a></span>
+						</div>
+					</th>
+				</tr>
+				<tr ng-repeat="user in resp | limitTo:1">
+					<th class="text-center" ng-repeat="(key, value) in user">{{ key | uppercase }}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="info" ng-repeat="particular in resp">
+					<td>{{ particular.project_id }}</td>
+					<td><a ng-href="#/project/{{ particular.project_id }}/tasks">{{ particular.project_name }}</a></td>
+					<td>
+						<span ng-repeat="userId in particular.project_members.user_id">
+							<span>{{ userId }}</a></span>
+						</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </div>

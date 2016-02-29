@@ -9,6 +9,10 @@
 		<tr ng-repeat="task in taskData.tasks">
 			<td>{{ task.user_id }}</td>
 			<td>{{ task.task_id }}</td>
+			<td><span ng-repeat="id in task.project_id">
+					<span>{{ id }}</span>
+				</span>
+			</td>
 			<td>{{ task.description }}</td>
 		</tr>
 	</tbody>
